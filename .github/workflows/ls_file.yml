@@ -26,8 +26,8 @@ jobs:
     
     - name: Commit changes and push
       run: |
-        git config --global user.email "rafaelsanchesz@hotmail.com"
-        git config --global user.name "RafaellSanchez"
+        git config --global user.email "88865750+RafaellSanchez@users.noreply.github.com"
+        git config --global user.name "Rafael Sanchez"
     
         git add dados/arquivo_salvo.txt
         git commit -m "Adicionar arquivo salvo"
