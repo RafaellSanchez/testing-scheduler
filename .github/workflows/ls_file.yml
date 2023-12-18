@@ -15,11 +15,16 @@ jobs:
         python main.py  # Substitua por seu comando para gerar o arquivo
       working-directory: /home/runner/work/testing-scheduler/testing-scheduler  # Ajuste para o diretório onde o arquivo é gerado
     
-    - name: Commit changes
+    - name: Commit changes and push
       run: |
         git config --global user.email "rafaelsanchesz@hotmail.com"
         git config --global user.name "RafaellSanchez"
-
-        git add dados/arquivo_salvo.txt  # Ajuste o caminho para o arquivo que deseja commitar
+    
+        git add dados/arquivo_salvo.txt
         git commit -m "Adicionar arquivo salvo"
-        git push
+    
+        # Utiliza o token de acesso pessoal para autenticar o push
+        git push https://github.com/RafaellSanchez/testing-scheduler.git HEAD:main
+      env:
+        ACTIONS_TOKEN: ${{ secrets.ACTIONS_TOKEN }}
+    
