@@ -14,5 +14,5 @@ jobs:
         
     - name: Run Python script
       run: |
-        python main.py  # Substitua 'your_script.py' pelo nome do seu arquivo Python
-      working-directory: /workspaces/testing-scheduler/data_testing.txt  # Defina o caminho para o diretório do seu script
+        python main.py
+      working-directory: /workspaces/testing-scheduler/  # Defina o caminho para o diretório do seu script e arquivo de dados
