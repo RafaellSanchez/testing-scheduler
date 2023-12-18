@@ -1,0 +1,18 @@
+name: Testar código
+
+on: [push]
+
+jobs:
+  testar-codigo:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Check current directory
+      run: |
+        pwd  # Exibe o diretório atual
+        ls   # Lista o conteúdo do diretório
+        
+    - name: Run Python script
+      run: |
+        python main.py  # Substitua 'your_script.py' pelo nome do seu arquivo Python
+      working-directory: /workspaces/testing-scheduler/data_testing.txt  # Defina o caminho para o diretório do seu script
