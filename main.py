@@ -35,8 +35,15 @@ diretorio_destino = 'dados'  # Substitua pelo nome do seu diretório de destino
 # Nome do arquivo a ser criado no diretório de destino
 nome_arquivo_destino = 'arquivo_salvo.txt'
 
+# Caminho completo para o diretório de destino
+caminho_diretorio_destino = os.path.join(os.getcwd(), diretorio_destino)
+
+# Se o diretório de destino não existir, cria o diretório
+if not os.path.exists(caminho_diretorio_destino):
+    os.makedirs(caminho_diretorio_destino)
+
 # Caminho completo para o arquivo de destino
-caminho_arquivo_destino = os.path.join(diretorio_destino, nome_arquivo_destino)
+caminho_arquivo_destino = os.path.join(caminho_diretorio_destino, nome_arquivo_destino)
 
 # Tenta salvar o conteúdo lido do arquivo no diretório de destino
 try:
