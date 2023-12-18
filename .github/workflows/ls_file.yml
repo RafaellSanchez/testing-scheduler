@@ -34,7 +34,6 @@ jobs:
     
         # Utiliza a URL SSH para autenticar o push
         git push git@github.com:RafaellSanchez/testing-scheduler.git HEAD:main
-
-        
+ 
       env:
         ACTIONS_TOKEN: ${{ secrets.ACTIONS_TOKEN }}
