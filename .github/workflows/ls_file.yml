@@ -13,6 +13,5 @@ jobs:
         ls   # Lista o conteúdo do diretório
         
     - name: Run Python script
-      run: |
-        python main.py
+      run: python main.py  # Substitua 'main.py' pelo nome do seu arquivo Python
       working-directory: /workspaces/testing-scheduler/  # Defina o caminho para o diretório do seu script e arquivo de dados
