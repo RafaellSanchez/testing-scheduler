@@ -17,5 +17,3 @@ jobs:
         
     - name: Run Python script
       run: python main.py  # Substitua 'main.py' pelo nome do seu arquivo Python
-      working-directory: /github/workspace/  # Usa o diretório padrão do GitHub Actions
-
