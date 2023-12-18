@@ -16,7 +16,6 @@ jobs:
         ls   # Lista o conteúdo do diretório
         
     - name: Run Python script
-      run: |
-        cd testing-scheduler
-        python main.py
+      run: python main.py  # Substitua 'main.py' pelo nome do seu arquivo Python
       working-directory: /github/workspace/  # Usa o diretório padrão do GitHub Actions
+
