@@ -10,6 +10,20 @@ jobs:
     - name: Check out repository
       uses: actions/checkout@v2  # Esta ação faz o checkout do repositório
     
+    - name: List SSH directory
+      run: ls -la ~/.ssh
+    
+    - name: Configure SSH key
+      run: |
+        mkdir -p ~/.ssh
+        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan github.com >> ~/.ssh/known_hosts
+        eval `ssh-agent -s`
+        ssh-add ~/.ssh/id_rsa
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+    
     - name: Run Python script
       run: |
         python main.py  # Substitua por seu comando para gerar o arquivo
@@ -23,10 +37,8 @@ jobs:
         git add dados/arquivo_salvo.txt
         git commit -m "Adicionar arquivo salvo"
     
-        # Utiliza o token de acesso pessoal para autenticar o push
         # Utiliza a URL SSH para autenticar o push
         git push git@github.com:RafaellSanchez/testing-scheduler.git HEAD:main
         
       env:
         ACTIONS_TOKEN: ${{ secrets.ACTIONS_TOKEN }}
-    
