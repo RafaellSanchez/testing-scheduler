@@ -1,12 +1,22 @@
-print('Testando código de agendamento!')
-
+import os
 
 file = '/workspaces/testing-scheduler/data_testing.txt'
 
-with open(file, 'r') as arquivo:
-    linhas = arquivo.readlines()
-    for linha in linhas:
-        dados = linha.split(';')  # Divide a linha usando o ponto e vírgula como separador
-        print(dados)  # Isso imprimirá uma lista com os dados separados
+# Verificar o diretório atual
+print("Diretório atual:", os.getcwd())
 
-print("Teste sucesso!")
+# Listar o conteúdo do diretório
+print("Conteúdo do diretório:", os.listdir())
+
+# Tente abrir o arquivo
+try:
+    with open(file, 'r') as arquivo:
+        linhas = arquivo.readlines()
+        for linha in linhas:
+            dados = linha.split(';')
+            print(dados)
+    print("Teste sucesso!")
+except FileNotFoundError:
+    print("Arquivo não encontrado:", file)
+except Exception as e:
+    print("Erro:", e)
