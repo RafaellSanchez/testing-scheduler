@@ -10,10 +10,16 @@ jobs:
     - name: Check out repository
       uses: actions/checkout@v2  # Esta ação faz o checkout do repositório
     
-    - name: Check current directory
-      run: |
-        pwd  # Exibe o diretório atual
-        ls   # Lista o conteúdo do diretório
-        
     - name: Run Python script
-      run: python main.py  # Substitua 'main.py' pelo nome do seu arquivo Python
+      run: |
+        python main.py  # Substitua por seu comando para gerar o arquivo
+      working-directory: /home/runner/work/testing-scheduler/testing-scheduler  # Ajuste para o diretório onde o arquivo é gerado
+    
+    - name: Commit changes
+      run: |
+        git config --global user.email "rafaelsanchesz@hotmail.com"
+        git config --global user.name "RafaellSanchez"
+
+        git add dados/arquivo_salvo.txt  # Ajuste o caminho para o arquivo que deseja commitar
+        git commit -m "Adicionar arquivo salvo"
+        git push
